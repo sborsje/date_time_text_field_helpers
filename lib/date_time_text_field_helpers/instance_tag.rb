@@ -37,6 +37,12 @@ module DateTimeTextFieldHelpers
                    :date_separator => '-',
                    :time_separator => ':',
                    :date_time_separator => '&mdash;', 
+                   :labels => { :year => 'YYYY',
+                                :month => 'MM',
+                                :day => 'DD',
+                                :hour => 'HH',
+                                :minute => 'MM',
+                                :second => 'SS' },
                    :class => 'date_time_field' }
                    
       options  = defaults.merge(options)
@@ -111,7 +117,7 @@ module DateTimeTextFieldHelpers
         when :year : 4
         else 2
       end
-      datetime_text_field_html = %(<input type="text" id="#{options[:id]}" name="#{options[:name]}" size="#{size}" value="#{value}" class="#{options[:class]}" />)
+      datetime_text_field_html = %(<span class="#{type}"><input type="text" id="#{options[:id]}" name="#{options[:name]}" size="#{size}" value="#{value}" class="#{options[:class]}" /><label for="#{options[:id]}">#{options[:labels][type]}</label></span>)
     end
 
     if Rails::VERSION::STRING < '2.2'
