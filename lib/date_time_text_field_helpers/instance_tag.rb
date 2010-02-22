@@ -91,7 +91,7 @@ module DateTimeTextFieldHelpers
           end)
       end
 
-      content_tag(:span, date_or_time_text_field, :class => options[:class], :id => "#{@object_name}_#{@method_name}")
+      date_or_time_text_field
     end
     
     # Extracts field name with position as params key to find
